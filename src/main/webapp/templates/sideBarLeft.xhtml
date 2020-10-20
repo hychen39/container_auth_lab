@@ -9,7 +9,8 @@
     <h:body>
         <ui:composition>
             <ul class="nav nav-stacked nav-pills">
-                <ui:fragment rendered="#{true}">
+                <ui:fragment rendered="#{securityBean.admin}">
+                    <!--Rendered if the user is with the admin role-->
                     <li><h:link class="btn btn-primary" 
                                 outcome="/admin/customerList"> 
                             Customer List (Admin Only)

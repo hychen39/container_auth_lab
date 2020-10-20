@@ -22,7 +22,8 @@
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <ui:fragment rendered="true">
+                            <ui:fragment rendered="#{securityBean.admin}">
+                                <!--Rendered if the user is with admin role-->
                                 <li id="customerItem" class="active">
                                     <h:link outcome="/admin/customerList">Customer List</h:link> 
                                 </li>
@@ -34,12 +35,24 @@
                         <ul class="nav navbar-nav navbar-right">
                             <!--Show the login username-->
                             <li><a> <h:outputText value="#{securityBean.principalName}"  /> </a> </li>
-                            <ui:fragment rendered="true">
+                            <ui:fragment rendered="#{securityBean.loginStatus}">
+                                <!--Rendered if the user has been login-->
                                 <li id="logoutAction"> 
-                                    <h:commandLink  >
+                                    <h:commandLink  action="#{securityBean.logout}" >
+                                        <!--Add the logout acting-->
                                         <span class="glyphicon glyphicon-log-out"></span> Logout 
                                     </h:commandLink>
                                 </li>
+                            </ui:fragment>
+                            <ui:fragment rendered="#{not securityBean.loginStatus}">
+                                <!--rendered if not log in-->
+                                <li id="loginAction"> 
+                                    <h:commandLink  action="/auth/authmethodform" >
+                                        <!--Add the logout acting-->
+                                        <span class="glyphicon glyphicon-log-in"></span> Login 
+                                    </h:commandLink>
+                                </li>
+                                
                             </ui:fragment>
                         </ul>
                     </div>
