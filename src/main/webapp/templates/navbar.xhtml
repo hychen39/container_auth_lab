@@ -22,7 +22,7 @@
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <ui:fragment rendered="#{securityBean.admin}">
+                            <ui:fragment rendered="true">
                                 <!--Rendered if the user is with admin role-->
                                 <li id="customerItem" class="active">
                                     <h:link outcome="/admin/customerList">Customer List</h:link> 
@@ -34,17 +34,17 @@
 
                         <ul class="nav navbar-nav navbar-right">
                             <!--Show the login username-->
-                            <li><a> <h:outputText value="#{securityBean.principalName}"  /> </a> </li>
-                            <ui:fragment rendered="#{securityBean.loginStatus}">
+                            <li><a> <h:outputText value="Empty"  /> </a> </li>
+                            <ui:fragment rendered="true">
                                 <!--Rendered if the user has been login-->
                                 <li id="logoutAction"> 
-                                    <h:commandLink  action="#{securityBean.logout}" >
+                                    <h:commandLink  action="true" >
                                         <!--Add the logout acting-->
                                         <span class="glyphicon glyphicon-log-out"></span> Logout 
                                     </h:commandLink>
                                 </li>
                             </ui:fragment>
-                            <ui:fragment rendered="#{not securityBean.loginStatus}">
+                            <ui:fragment rendered="true">
                                 <!--rendered if not log in-->
                                 <li id="loginAction"> 
                                     <h:commandLink  action="/auth/authmethodform" >
