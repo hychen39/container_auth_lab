@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>web.xml FORM Authentication</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/masterLayout.xhtml">
+            <ui:define name="contentArea">
+                Form based authentication page
+                <form method="POST" action="j_security_check">
+                    <div class="form-group">
+                        <label for="inputName"> User Name </label>  
+                        <input id="inputName" class="form-control" type="text" name="j_username"/>
+                    </div>
+                    <div class="form-group">
+
+                        <label for="inputPasswd"> Password </label>   
+                        <input id="inputPasswd" class="form-control" type="password" name="j_password"/>
+                        <input class="btn btn-primary" type="submit" value="Login"/>
+                    </div>
+                </form>
+                This page only works if you were redirected here by the server.
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

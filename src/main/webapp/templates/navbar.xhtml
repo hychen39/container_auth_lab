@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid" >
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span> 
+                        </button>
+                        <!--Brand-->
+                        <h:link styleClass="navbar-brand" outcome="/index"> #{siteName} </h:link>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <ui:fragment rendered="true">
+                                <li id="customerItem" class="active">
+                                    <h:link outcome="/admin/customerList">Customer List</h:link> 
+                                </li>
+                            </ui:fragment>
+
+                            <li id="emailItem"><h:link outcome="/member/emailList" >Email List</h:link> </li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <!--Show the login username-->
+                            <li><a> <h:outputText value="#{securityBean.principalName}"  /> </a> </li>
+                            <ui:fragment rendered="true">
+                                <li id="logoutAction"> 
+                                    <h:commandLink  >
+                                        <span class="glyphicon glyphicon-log-out"></span> Logout 
+                                    </h:commandLink>
+                                </li>
+                            </ui:fragment>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </ui:composition>
+    </h:body>
+</html>
+
